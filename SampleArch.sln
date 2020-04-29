@@ -5,15 +5,17 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleArch.Model", "SampleArch.Model\SampleArch.Model.csproj", "{932D16F8-B06C-4B83-8A0F-8A2C9744EC62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleArch.ORM", "SampleArch.ORM\SampleArch.ORM.csproj", "{C1EC8A77-F0C1-403E-9ADE-D422F0FC9120}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleArch.ORM", "SampleArch.ORM\SampleArch.ORM.csproj", "{C1EC8A77-F0C1-403E-9ADE-D422F0FC9120}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleArch.Web", "SampleArch.Web\SampleArch.Web.csproj", "{4E2D5198-48FC-48F7-9235-558A0ED30D4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleArch.Web", "SampleArch.Web\SampleArch.Web.csproj", "{4E2D5198-48FC-48F7-9235-558A0ED30D4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleArch.Repository", "SampleArch.Repository\SampleArch.Repository.csproj", "{6122DA8F-05F4-4208-86C9-6851A3A9D7F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleArch.Repository", "SampleArch.Repository\SampleArch.Repository.csproj", "{6122DA8F-05F4-4208-86C9-6851A3A9D7F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleArch.Services", "SampleArch.Services\SampleArch.Services.csproj", "{3ED6FC06-C63F-4075-BD04-922DCECCB81C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleArch.Services", "SampleArch.Services\SampleArch.Services.csproj", "{3ED6FC06-C63F-4075-BD04-922DCECCB81C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleArch.Test", "SampleArch.Test\SampleArch.Test.csproj", "{D72BBFF5-7B31-4668-9E29-6BB37021EBDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleArch.Test", "SampleArch.Test\SampleArch.Test.csproj", "{D72BBFF5-7B31-4668-9E29-6BB37021EBDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleArch.XUnitTest", "SampleArch.XUnitTest\SampleArch.XUnitTest.csproj", "{350A2892-C39B-4EB8-9FC9-B97B77A4F9DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D72BBFF5-7B31-4668-9E29-6BB37021EBDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D72BBFF5-7B31-4668-9E29-6BB37021EBDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D72BBFF5-7B31-4668-9E29-6BB37021EBDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350A2892-C39B-4EB8-9FC9-B97B77A4F9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350A2892-C39B-4EB8-9FC9-B97B77A4F9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350A2892-C39B-4EB8-9FC9-B97B77A4F9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350A2892-C39B-4EB8-9FC9-B97B77A4F9DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

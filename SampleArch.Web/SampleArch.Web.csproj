@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -19,9 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SampleArch.Model\SampleArch.Model.csproj" />
     <ProjectReference Include="..\SampleArch.ORM\SampleArch.ORM.csproj" />
-    <ProjectReference Include="..\SampleArch.Repository\SampleArch.Repository.csproj" />
     <ProjectReference Include="..\SampleArch.Services\SampleArch.Services.csproj" />
   </ItemGroup>
 

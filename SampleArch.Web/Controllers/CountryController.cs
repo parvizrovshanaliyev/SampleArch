@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SampleArch.Model;
 using SampleArch.Services;
 
@@ -40,15 +35,11 @@ namespace SampleArch.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Country country)
         {
-
             // TODO: Add insert logic here
-            if (ModelState.IsValid)
-            {
-               _countryService.Create(country);
-                return RedirectToAction("Index");
-            }
-            return View(country);
-
+            if (!ModelState.IsValid) return View(country);
+            _countryService.Create(country);
+            return RedirectToAction(actionName: nameof(Index),
+                controllerName: "Country");
         }
 
         //
