@@ -7,7 +7,7 @@ using SampleArch.Model.BaseEntities.Abstracts;
 namespace SampleArch.Model
 {
     [Table("Person")]
-    public class Person : AuditableEntity<long>
+    public class Person : Entity<long>
     {
 
         [Required]

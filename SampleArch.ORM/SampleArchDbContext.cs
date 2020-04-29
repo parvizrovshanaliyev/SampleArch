@@ -34,35 +34,36 @@ namespace SampleArch.ORM
         }
 
         #endregion OnConfiguring
-        public override int SaveChanges()
-        {
-            var modifiedEntries = ChangeTracker.Entries()
-                .Where(x => x.Entity is IAuditableEntity &&
-                                     (x.State == EntityState.Added ||
-                                      x.State == EntityState.Modified));
 
-            foreach (var entry in modifiedEntries)
-            {
-                if (!(entry.Entity is IAuditableEntity entity)) continue;
-                var identityName = Thread.CurrentPrincipal.Identity.Name;
-                var now = DateTime.UtcNow;
+        //public override int SaveChanges()
+        //{
+        //    var modifiedEntries = ChangeTracker.Entries()
+        //        .Where(x => x.Entity is IAuditableEntity &&
+        //                             (x.State == EntityState.Added ||
+        //                              x.State == EntityState.Modified));
 
-                if (entry.State == EntityState.Added)
-                {
-                    entity.CreatedBy = identityName;
-                    entity.CreatedDate = now;
-                }
-                else
-                {
-                    base.Entry(entity).Property(x => x.CreatedBy).IsModified = false;
-                    base.Entry(entity).Property(x => x.CreatedDate).IsModified = false;
-                }
+        //    foreach (var entry in modifiedEntries)
+        //    {
+        //        if (!(entry.Entity is IAuditableEntity entity)) continue;
+        //        var identityName = Thread.CurrentPrincipal.Identity.Name;
+        //        var now = DateTime.UtcNow;
 
-                entity.UpdatedBy = identityName;
-                entity.UpdatedDate = now;
-            }
+        //        if (entry.State == EntityState.Added)
+        //        {
+        //            entity.CreatedBy = identityName;
+        //            entity.CreatedDate = now;
+        //        }
+        //        else
+        //        {
+        //            base.Entry(entity).Property(x => x.CreatedBy).IsModified = false;
+        //            base.Entry(entity).Property(x => x.CreatedDate).IsModified = false;
+        //        }
 
-            return base.SaveChanges();
-        }
+        //        entity.UpdatedBy = identityName;
+        //        entity.UpdatedDate = now;
+        //    }
+
+        //    return base.SaveChanges();
+        //}
     }
 }

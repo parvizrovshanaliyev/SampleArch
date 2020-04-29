@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SampleArch.ORM.Migrations
 {
@@ -26,10 +25,6 @@ namespace SampleArch.ORM.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    CreatedBy = table.Column<string>(maxLength: 256, nullable: true),
-                    UpdatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedBy = table.Column<string>(maxLength: 256, nullable: true),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     Phone = table.Column<string>(maxLength: 20, nullable: false),
                     Address = table.Column<string>(maxLength: 100, nullable: false),
