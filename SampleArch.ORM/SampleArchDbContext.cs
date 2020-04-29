@@ -9,9 +9,11 @@ namespace SampleArch.ORM
 {
     public class SampleArchDbContext : DbContext
     {
-
-        public SampleArchDbContext(
-            DbContextOptions<SampleArchDbContext> options)
+        public SampleArchDbContext()
+        {
+            
+        }
+        public SampleArchDbContext( DbContextOptions<SampleArchDbContext> options)
         {
             
         }
@@ -19,7 +21,19 @@ namespace SampleArch.ORM
         public DbSet<Person> Persons { get; set; }
         public DbSet<Country> Countries { get; set; }
 
+        #region .:: OnConfiguring ::.
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(
+                    "Server=.\\SQLEXPRESS; Database=SampleArch; Trusted_Connection=True;MultipleActiveResultSets=true");
+            }
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        #endregion OnConfiguring
         public override int SaveChanges()
         {
             var modifiedEntries = ChangeTracker.Entries()
