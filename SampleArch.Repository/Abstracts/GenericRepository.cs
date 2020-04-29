@@ -8,39 +8,39 @@ using SampleArch.Repository.Interfaces;
 
 namespace SampleArch.Repository.Abstracts
 {
-    public abstract class GenericRepository<T> : IGenericRepository<T>
+    public  class GenericRepository<T> : IGenericRepository<T>
         where T : BaseEntity
     {
         protected DbContext Context;
-        //protected readonly IDbSet<T> context.Set<T>();
+        protected readonly DbSet<T> DbSet;
 
         protected GenericRepository(DbContext context)
         {
             Context = context;
-            //context.Set<T>() = context.Set<T>();
+            DbSet = context.Set<T>();
         }
 
         public virtual IEnumerable<T> GetAll()
         {
 
-            return Context.Set<T>().AsEnumerable<T>();
+            return DbSet.AsEnumerable<T>();
         }
 
         public IEnumerable<T> FindBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {
 
-            IEnumerable<T> query = Context.Set<T>().Where(predicate).AsEnumerable();
+            IEnumerable<T> query = DbSet.Where(predicate).AsEnumerable();
             return query;
         }
 
         public virtual EntityEntry<T> Add(T entity)
         {
-            return Context.Set<T>().Add(entity);
+            return DbSet.Add(entity);
         }
 
         public virtual EntityEntry<T> Delete(T entity)
         {
-            return Context.Set<T>().Remove(entity);
+            return DbSet.Remove(entity);
         }
 
         public virtual void Edit(T entity)

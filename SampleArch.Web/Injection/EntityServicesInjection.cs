@@ -11,6 +11,7 @@ namespace SampleArch.Web.Injection
     {
         public static IServiceCollection AddEntityServicesInjection(this IServiceCollection services)
         {
+            services.AddScoped(typeof(IEntityService<>), typeof(EntityService<>));
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<ICountryService, CountryService>();
 

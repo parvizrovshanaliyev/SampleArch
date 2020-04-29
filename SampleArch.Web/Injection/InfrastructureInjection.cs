@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SampleArch.ORM;
+using SampleArch.Repository;
 using SampleArch.Repository.Abstracts;
 using SampleArch.Repository.Interfaces;
 
@@ -19,6 +20,9 @@ namespace SampleArch.Web.Injection
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
 
             return services;
         }

@@ -21,7 +21,7 @@ namespace SampleArch.Services
         void Update(T entity);
     }
 
-    public abstract class EntityService<T> : IEntityService<T> where T : BaseEntity
+    public  class EntityService<T> : IEntityService<T> where T : BaseEntity
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<T> _repository;

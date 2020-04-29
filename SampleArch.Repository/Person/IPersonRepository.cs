@@ -23,15 +23,18 @@ namespace SampleArch.Repository
 
         public override IEnumerable<Person> GetAll()
         {
-            return Context.Set<Person>().Include(x => x.Country).AsEnumerable();
+            return DbSet
+                .Include(x => x.Country)
+                .AsEnumerable();
         }
 
         public Person GetById(long id)
         {
-            return Context.Set<Person>()
-                .Include(x => x.Country).FirstOrDefault(x => x.Id == id);
+            return DbSet
+                .Include(x => x.Country)
+                .FirstOrDefault(x => x.Id == id);
         }
     }
 
-    
+
 }
