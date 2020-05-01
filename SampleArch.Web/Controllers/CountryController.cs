@@ -33,13 +33,13 @@ namespace SampleArch.Web.Controllers
         // POST: /Country/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Country country)
+        public ActionResult Create(Country country)
         {
             // TODO: Add insert logic here
             if (!ModelState.IsValid) return View(country);
+
             _countryService.Create(country);
-            return RedirectToAction(actionName: nameof(Index),
-                controllerName: "Country");
+            return RedirectToAction("Index","Country");
         }
 
         //

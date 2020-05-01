@@ -21,4 +21,8 @@
     <ProjectReference Include="..\SampleArch.Web\SampleArch.Web.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>

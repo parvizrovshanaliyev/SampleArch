@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using SampleArch.Model;
@@ -12,6 +11,7 @@ namespace SampleArch.Repository
     {
         Person GetById(long id);
     }
+
 
     public class PersonRepository : GenericRepository<Person>, IPersonRepository
     {
@@ -28,6 +28,7 @@ namespace SampleArch.Repository
                 .AsEnumerable();
         }
 
+
         public Person GetById(long id)
         {
             return DbSet
@@ -35,6 +36,4 @@ namespace SampleArch.Repository
                 .FirstOrDefault(x => x.Id == id);
         }
     }
-
-
 }

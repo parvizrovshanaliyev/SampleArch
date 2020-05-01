@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using SampleArch.Model.BaseEntities.Abstracts;
@@ -8,7 +9,7 @@ using SampleArch.Repository.Interfaces;
 
 namespace SampleArch.Repository.Abstracts
 {
-    public  class GenericRepository<T> : IGenericRepository<T>
+    public class GenericRepository<T> : IGenericRepository<T>
         where T : BaseEntity
     {
         protected DbContext Context;
@@ -33,14 +34,18 @@ namespace SampleArch.Repository.Abstracts
             return query;
         }
 
-        public virtual EntityEntry<T> Add(T entity)
+        public virtual T Add(T entity)
         {
-            return DbSet.Add(entity);
+            Context.Set<T>().Add(entity);
+
+            return entity;
         }
 
-        public virtual EntityEntry<T> Delete(T entity)
+        public virtual T Delete(T entity)
         {
-            return DbSet.Remove(entity);
+            DbSet.Remove(entity);
+
+            return entity;
         }
 
         public virtual void Edit(T entity)

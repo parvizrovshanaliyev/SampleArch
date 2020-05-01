@@ -12,15 +12,15 @@ namespace SampleArch.Test.Controllers
     public class CountryControllerTest
     {
         private Mock<ICountryService> _countryServiceMock;
-        CountryController _objController;
-        List<Country> _listCountry;
+        private CountryController _controller;
+        private List<Country> _listCountry;
 
         [TestInitialize]
         public void Initialize()
         {
 
             _countryServiceMock = new Mock<ICountryService>();
-            _objController = new CountryController(_countryServiceMock.Object);
+            _controller = new CountryController(_countryServiceMock.Object);
             _listCountry = new List<Country>() {
            new Country() { Id = 1, Name = "US" },
            new Country() { Id = 2, Name = "India" },
@@ -35,7 +35,7 @@ namespace SampleArch.Test.Controllers
             _countryServiceMock.Setup(x => x.GetAll()).Returns(_listCountry);
 
             //Act
-            var result = (((Microsoft.AspNetCore.Mvc.ViewResult) _objController.Index())?.Model) as List<Country>;
+            var result = (((Microsoft.AspNetCore.Mvc.ViewResult) _controller.Index())?.Model) as List<Country>;
 
             //Assert
             if (result == null) return;
@@ -49,15 +49,15 @@ namespace SampleArch.Test.Controllers
         public void Valid_Country_Create()
         {
             //Arrange
-            Country country = new Country() { Name = "test1" };
+            Country c = new Country() { Name = "test1" };
 
             //Act
-            var result = (RedirectToRouteResult)_objController.Create(country);
-
+            var result = (RedirectToActionResult)_controller.Create(c);
+           
             //Assert 
-            _countryServiceMock.Verify(m => m.Create(country), Times.Once);
-            Assert.AreEqual("Index", result.RouteValues["action"]);
-
+            _countryServiceMock.Verify(m => m.Create(c), Times.Once);
+            Assert.AreEqual("Index", result.ActionName);
+            Assert.AreEqual("Country", result.ControllerName);
         }
 
         [TestMethod]
@@ -65,10 +65,10 @@ namespace SampleArch.Test.Controllers
         {
             // Arrange
             Country country = new Country() { Name = "" };
-            _objController.ModelState.AddModelError("Error", "Something went wrong");
+            _controller.ModelState.AddModelError("Error", "Something went wrong");
 
             //Act
-            var result = (ViewResult)_objController.Create(country);
+            var result = (ViewResult)_controller.Create(country);
 
             //Assert
             _countryServiceMock.Verify(m => m.Create(country), Times.Never);

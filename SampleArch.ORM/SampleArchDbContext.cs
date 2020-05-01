@@ -18,7 +18,7 @@ namespace SampleArch.ORM
             
         }
 
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<Person> People { get; set; }
         public DbSet<Country> Countries { get; set; }
 
         #region .:: OnConfiguring ::.
