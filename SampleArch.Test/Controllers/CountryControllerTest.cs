@@ -72,7 +72,7 @@ namespace SampleArch.Test.Controllers
 
             //Assert
             _countryServiceMock.Verify(m => m.Create(country), Times.Never);
-            Assert.AreEqual("", result.ViewName);
+            Assert.AreEqual(null, result.ViewName);
         }
     }
 }

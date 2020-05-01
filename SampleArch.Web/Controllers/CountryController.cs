@@ -39,6 +39,7 @@ namespace SampleArch.Web.Controllers
             if (!ModelState.IsValid) return View(country);
 
             _countryService.Create(country);
+
             return RedirectToAction("Index","Country");
         }
 
